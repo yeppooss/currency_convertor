@@ -14,7 +14,7 @@ export default function Exchanger(){
         const amountValue =
             typeof amount === "string" ? parseFloat(amount) : amount;
 
-        if(amountValue === 0 | isNaN(amountValue) || amountValue < 0){
+        if(amountValue === 0 || isNaN(amountValue) || amountValue < 0){
             setCurrencyResult("");
             return;
         }
@@ -25,7 +25,6 @@ export default function Exchanger(){
         try{
             const response = await axios.get(url);
             const parsedData = response.data;
-            console.log(parsedData)
             if(intoValue in parsedData.conversion_rates){
                 const currencyRate = parsedData.conversion_rates[intoValue];
                 const currencyResult = amountValue * currencyRate;
