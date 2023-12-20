@@ -7,12 +7,24 @@ import {
 import Root from "./routes/root.jsx";
 import './index.css'
 import ErrorPage from "./error-page.jsx";
+import Exchanger from "./routes/exchanger.jsx";
+import Rate from "./routes/rate.jsx";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root />,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
+        children:[
+            {
+                path: "exchanger",
+                element: <Exchanger />
+            },
+            {
+                path: "rate",
+                element: <Rate />
+            }
+        ]
     }
 ])
 

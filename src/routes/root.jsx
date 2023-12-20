@@ -1,3 +1,5 @@
+import {Link, Outlet} from "react-router-dom";
+
 export default function Root() {
     return(
         <>
@@ -6,15 +8,17 @@ export default function Root() {
                 <nav>
                     <ul>
                         <li>
-                            <a href={`/exchanger`}>Exchanger</a>
+                            <Link to={`/exchanger`}>Exchanger</Link>
                         </li>
                         <li>
-                            <a href={`/rate`}>Current Exchange Rate</a>
+                            <Link to={`/rate`}>Current Exchange Rate</Link>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <div id="detail"></div>
+            <div id="detail">
+                <Outlet />
+            </div>
         </>
     );
 }
